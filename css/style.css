@@ -100,7 +100,7 @@ label{
     background: rgba(0, 0, 0, 0.55);
 }
 .bg {
-	background: url(../images/2.jpg) no-repeat center !important ;
+	background: url(../images/1.jpeg) no-repeat center !important ;
 	background-size: cover;
 	background-attachment: fixed;
 }

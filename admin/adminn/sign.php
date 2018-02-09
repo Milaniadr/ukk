@@ -50,9 +50,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																		<div class="clearfix"></div>
 																		<div class="buttons">
 																			<ul>
-																				<li><a href="#" class="hvr-sweep-to-right">Sign up</a></li>
+																				<li><a href="http://www.facebook.com" class="hvr-sweep-to-right">Sign up</a></li>
 																				<li class="or"><h6>OR</h6></li>
-																				<li class="lost"><a href="#" class="hvr-sweep-to-left">Sign up</a> </li>
+																				<li class="lost"><a href="http://www.twitter.com" class="hvr-sweep-to-left">Sign up</a> </li>
 																				<div class="clearfix"></div>
 																			</ul>
 																		</div>
@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="error-btn">
 															<a class="read fourth" href="index.php">Return to Home</a>
 															</div>
-										   <p>&copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
+										   <p>copy 2016 Augment . All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts.</a></p>
 										</div>
 									<!--footer section end-->
 									<!--/404-->

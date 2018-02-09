@@ -1,27 +1,21 @@
- 		<?php
-	session_start();
-	if($_SESSION['traveler']){
+<?php
+session_start();
+if($_SESSION['traveler']){
 
-		?>
+	?>
 
-		<?php
-		require_once '../../action/koneksi.php';
-		$ambilid = $_GET['id'];
-		$res = $connect ->query("SELECT * from transportation where id='$ambilid'");
-		$data = $res->fetch_array(MYSQLI_ASSOC);
-
-		if(isset($_POST['edit'])){
-			$nama = $_POST['name'];
-			$code = $_POST['code'];
-			$description = $_POST['description'];
-			$seat_qty = $_POST['seat_qty'];
-			$update = $connect->query("UPDATE transportation SET name='$name', code='$code', description='$description', seat_qty='$seat_qty' WHERE id='$ambilid'");
-			header("location:dafpesawat.php");
-
-		}
-		?>
+	<?php
+	require_once '../../action/koneksi.php';
+	if (isset($_POST['Input'])){
+		$name = $_POST['name'];
+		$address = $_POST['address'];
+		$phone = $_POST['phone'];
+		$gender = $_POST['gender'];			
+		$connect->query("INSERT INTO costumer (name, address, phone, gender) VALUES ('$name','$address','$phone','$gender')");
+	}
+	?>
 	<!--
-	Author: W3layouts
+	Author: Wgender
 	Author URL: http://w3layouts.com
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
@@ -77,28 +71,28 @@
 					<!--/sub-heard-part-->	
 					<!--/forms-->
 					<div class="forms-main">
-						<h2 class="inner-tittle">Form Data Pesawat</h2>
+						<h2 class="inner-tittle">Form Data Costumer</h2>
 						<div class="graph-form">
 							<div class="form-body">
 								<form class="form-horizontal" role="form" method="POST"> 
 									<div class="form-group"> 
-										<label>Nama Pesawat</label> 
-										<input type="text" class="form-control" id="name" placeholder="Nama Pesawat" name="name" value="<?php echo $data['name'];?>"> 
+										<label>Nama Costumer</label> 
+										<input type="text" class="form-control" id="name" placeholder="Nama Costumer" name="name"> 
 									</div> 
 									<div class="form-group"> 
-										<label>Kode Pesawat</label> 
-										<input type="text" class="form-control" id="code" placeholder="Kode Pesawat" name="code" value="<?php echo $data['code'];?>"> 
+										<label>Addres</label> 
+										<input type="text" class="form-control" id="address" placeholder="address" name="address"> 
 									</div> 
 									<div class="form-group"> 
-										<label>Deskripsi Pesawat</label> 
-										<input type="text" class="form-control" id="description" placeholder="Deskripsi Pesawat" name="description" value="<?php echo $data['description'];?>"> 
+										<label>phone</label> 
+										<input type="text" class="form-control" id="phone" placeholder="phone" name="phone"> 
 									</div>
 									<div class="form-group"> 
-										<label>Seat</label> 
-										<input type="text" class="form-control" id="seat_qty" placeholder="Jumlah Seat" name="seat_qty" value="<?php echo $data['seat_qty'];?>"> 
+										<label>gender</label> 
+										<input type="text" class="form-control" id="gender" placeholder="gender" name="gender"> 
 									</div>
 									<div class="submit">
-										<input type="submit" value="edit" name="edit">
+										<input type="submit" value="Input" name="Input">
 									</div> 
 								</form> 
 							</div>
@@ -108,22 +102,26 @@
 
 						<!--//outer-wp-->
 						<!--footer section start-->
-
+
 						<!--footer section end-->
 					</div>
 				</div>
 				<!--//content-inner-->
 				<!--/sidebar-menu-->
 				<?php require_once 'page/navbar.php' ?>
-		<!--js -->
-		<script src="js/jquery.nicescroll.js"></script>
-		<script src="js/scripts.js"></script>
+				<!--js -->
+				<link rel="stylesheet" href="css/vroom.css">
+				<script type="text/javascript" src="js/vroom.js"></script>
+				<script type="text/javascript" src="js/TweenLite.min.js"></script>
+				<script type="text/javascript" src="js/CSSPlugin.min.js"></script>
+				<script src="js/jquery.nicescroll.js"></script>
+				<script src="js/scripts.js"></script>
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="js/bootstrap.min.js"></script>
-	</body>
-	</html>
-	<?php
-} else {
-	echo "<script>window.location='../login.php';</script>";
-}
+				<!-- Bootstrap Core JavaScript -->
+				<script src="js/bootstrap.min.js"></script>
+			</body>
+			</html>
+			<?php
+		} else {
+			echo "<script>window.location='../login.php';</script>";
+		}

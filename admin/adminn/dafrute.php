@@ -60,7 +60,7 @@
 					<!--/sub-heard-part-->	
 					<!--/forms-->
 					<div class="forms-main">
-						<h2 class="inner-tittle">Data Pesawat</h2>
+						<h2 class="inner-tittle">Data Rute Pesawat</h2>
 						<div class="graph-form">
 							<div class="form-body">
 								<div class="container">
@@ -69,10 +69,11 @@
 											<table class="table table-striped table-responsive table-hover">
 												<thead>
 													<th>No</th>
-													<th>Nama Pesawat</th>
-													<th>Kode</th>
-													<th>Deskripsi</th>
-													<th>Seat</th>
+													<th>Waktu</th>
+													<th>Keberangkatan</th>
+													<th>Tujuan</th>
+													<th>Harga</th>
+													<th>Nama pesawat</th>
 													<th>Opsi</th>
 												</thead>
 												<tbody>
@@ -81,54 +82,55 @@
   // Load file koneksi.php
 													require_once '../../action/koneksi.php';
 
-  														$query = "SELECT * FROM transportation"; // Query untuk menampilkan semua data siswa
+  														$query = "SELECT * FROM rute"; // Query untuk menampilkan semua data siswa
   														$sql = mysqli_query($connect, $query); // Eksekusi/Jalankan query dari variabel $query
   														$no=1;
   														while($data = mysqli_fetch_array($sql)){ // Ambil semua data dari hasil eksekusi $sql
   															echo "<tr>";
   															echo "<td>".$no."</td>";
-  															echo "<td>".$data['name']."</td>";    
-  															echo "<td>".$data['code']."</td>";
-  															echo "<td>".$data['description']."</td>";
-  															echo "<td>".$data['seat_qty']."</td>";
+  															echo "<td>".$data['depart_at']."</td>";    
+  															echo "<td>".$data['rute_from']."</td>";
+  															echo "<td>".$data['rute_to']."</td>";
+  															echo "<td>".$data['price']."</td>";
+  															echo "<td>".$data['transportationid']."</td>";
   															echo "<td>
-  																	<a class='fa fa-edit' href='editpesawat.php?id=".$data['id']."'></a>
-  																	<a class='fa fa-trash-o' href='deletpesawat.php?aksi=delete&id=".$data['id']."'></a>
-  																</td>";
+  															<a class='fa fa-edit' href='editrute.php?id=".$data['id']."'></a>
+  															<a class='fa fa-trash-o' href='deletrute.php?aksi=delete&id=".$data['id']."'></a>
+  														</td>";
 
-  															echo "</tr>";
-  															$no++;
-  														}
-  														?>
+  														echo "</tr>";
+  														$no++;
+  													}
+  													?>
 
-  													</tbody>
-  												</table>
-  											</div>
+  												</tbody>
+  											</table>
   										</div>
   									</div>
   								</div>
   							</div>
   						</div>
-  						<!--/forms-inner-->
-
-  						<!--//outer-wp-->
-  						<!--footer section start-->
-
-  						<!--footer section end-->
   					</div>
-  				</div>
-  				<!--//content-inner-->
-  				<!--/sidebar-menu-->
-  				<?php require_once 'page/navbar.php' ?>
-  		<!--js -->
-  		<script src="js/jquery.nicescroll.js"></script>
-  		<script src="js/scripts.js"></script>
+  					<!--/forms-inner-->
 
-  		<!-- Bootstrap Core JavaScript -->
-  		<script src="js/bootstrap.min.js"></script>
-  	</body>
-  	</html>
-  	<?php
-  } else {
-  	echo "<script>window.location='../login.php';</script>";
-  }
+  					<!--//outer-wp-->
+  					<!--footer section start-->
+
+  					<!--footer section end-->
+  				</div>
+  			</div>
+  			<!--//content-inner-->
+  			<!--/sidebar-menu-->
+  			<?php require_once 'page/navbar.php' ?>
+  			<!--js -->
+  			<script src="js/jquery.nicescroll.js"></script>
+  			<script src="js/scripts.js"></script>
+
+  			<!-- Bootstrap Core JavaScript -->
+  			<script src="js/bootstrap.min.js"></script>
+  		</body>
+  		</html>
+  		<?php
+  	} else {
+  		echo "<script>window.location='../login.php';</script>";
+  	}
